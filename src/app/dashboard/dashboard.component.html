@@ -1,0 +1,89 @@
+<!-- As a link -->
+<nav class="navbar navbar-light bg-dark " >
+    <a class="navbar-brand  " href="#" style="color:rgb(85, 98, 237);"><b>&#169; Reminders </b></a>
+    <button class="btn btn-danger" (click)='logout()'>Logout</button>
+
+  </nav>
+  
+  <h1 style="color: white;">Welcome {{user}}</h1>
+
+  <a routerLink="/event">Events List</a>
+
+    <!-- <button class="btn btn-danger" style="float: right;" (click)=deleteFromParent()>Delete Account</button> -->
+
+    <!-- parent - dashboard component and child - delete confirmation -->
+
+    <!-- <app-delete-confirmation (onCancel)="cancel()" (onDelete)="delete($event)" [item]="userid"></app-delete-confirmation> -->
+    
+  <div class="container col-md-12 mt-0">
+      <div class="d-flex justify-content-center h-100">
+          <!-- <div [ngClass]="userid? 's1': '' " class="card"> -->
+              
+            <div class="card-header">
+                  <h3 appHighlight class="text-center">Add Event</h3>
+                  
+              </div>
+              <div  class="card-body">
+                  <form [formGroup]= "eventForm" (ngSubmit)="event()">
+                      <div class="input-group form-group">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fas fa-user"></i></span>
+                          </div>
+                          
+                      
+                          <input type="text" class="form-control" name="eventname" formControlName="eventname" placeholder="event name please"  id="event_eventname" required>
+                        </div>
+
+                        <div style="color: white;" class="error" *ngIf="(this.eventForm.get('eventname')?.touched||this.eventForm.get('eventname')?.dirty)&& this.eventForm.get('eventname')?.errors">invalid event name</div>
+                      
+                      
+                        <div class="input-group form-group">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fas fa-key"></i></span>
+                          </div>
+                          
+                            <input type="text" class="form-control" name="eventdate"  formControlName="eventdate" placeholder="eventdate" id="eventdate" required> 
+                      </div>
+
+                      <div style="color: white;" class="error" *ngIf="(this.eventForm.get('eventdate')?.touched||this.eventForm.get('eventdate')?.dirty)&& this.eventForm.get('eventdate')?.errors">invalid event date</div>
+                      
+                      <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        
+                    
+                         
+                          <input type="submit" value="Add Event"   class="btn float-right login_btn " style="width:50%" >
+                      </div>
+                  </form>
+                </div>
+          </div>
+      </div>
+
+    <!-- </div> -->
+  
+
+
+
+
+
+ 
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

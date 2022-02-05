@@ -1,0 +1,22 @@
+<h1 style="color: white; text-align: center;">Events List</h1>
+<table >
+    <thead>
+        <tr>
+            <th class="title">Sl.No.</th>
+            <th class="title">Event Name</th>
+            <th class="title">Event Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let event of events; let i=index;">
+            <th>{{i+1}}</th>
+            <th>{{event.amount}}</th>
+            <th>{{event.type}}</th>
+        </tr>
+
+    </tbody>
+</table>
+<br>
+<a class="Home" routerLink="/dashboard">Home</a>
+
+

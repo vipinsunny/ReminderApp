@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
 import { DataService } from '../services/data.service';
+import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
 
 @Component({
   selector: 'app-event',
@@ -10,11 +10,11 @@ import { DataService } from '../services/data.service';
 export class EventComponent implements OnInit {
 
   events:any
-  eventname:""
+  userid=""
   constructor(private ds:DataService) {
-    this.eventname=JSON.parse(localStorage.getItem("currentEventName") || "")
+    this.userid=JSON.parse(localStorage.getItem("currentUserId") || "")
     
-    this.ds.getEvent(this.eventname)
+    this.ds.getEvent(this.userid)
     .subscribe((result:any)=>{
       console.log(result);
       if(result){

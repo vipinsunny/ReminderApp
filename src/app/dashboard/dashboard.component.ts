@@ -11,24 +11,33 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class DashboardComponent implements OnInit {
   eventname = ""
   eventdate = ""
+ 
+  
 
-  // eventname1= ""
-  // eventdate1=""
+  eventname1= ""
+  eventdate1=""
+
+ 
   
 
 
   eventForm = this.fb.group({
    eventname: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]*')]],
   eventdate: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9-./]*')]]
+  
   })
 
 
   
 user:any
-eventName=""
+userid:any
 
-  constructor(private ds: DataService, private fb: FormBuilder, private router: Router) { }
-    
+
+  constructor(private ds: DataService, private fb: FormBuilder, private router: Router) { 
+  if(localStorage.getItem("currentName")){
+    this.user=JSON.parse(localStorage.getItem("currentName") || "")
+   }
+  }
 
   ngOnInit(): void {
     if(!localStorage.getItem("token")){
@@ -45,12 +54,14 @@ eventName=""
   }
 
   event() {
-
+    
     var eventname = this.eventForm.value.eventname
     var eventdate = this.eventForm.value.eventdate
+    var userid=JSON.parse( localStorage.getItem("currentUserId")||"")
 
     if (this.eventForm.valid) {
-      this.ds.event(eventname, eventdate)
+      this.ds.event(eventname, eventdate, userid)
+    
       .subscribe((result:any) =>{
         if(result){
         alert(result.message)

@@ -28,8 +28,8 @@ pswd:['',[Validators.required, Validators.pattern('[a-zA-Z0-9]*')]]
 
     
     if(this.registerForm.valid){
-    var name=this.registerForm.value.uname
-    var userid=this.registerForm.value.acno
+    var name=this.registerForm.value.name
+    var userid=this.registerForm.value.userid
     var pswd=this.registerForm.value.pswd
     //asynchronous
     this.ds.register(name, userid, pswd)

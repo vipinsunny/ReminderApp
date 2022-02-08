@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
 
   login() {
 
-    var userid = this.loginForm.value.acno
+    var userid = this.loginForm.value.userid
     var password = this.loginForm.value.pswd
     if (this.loginForm.valid) {
 

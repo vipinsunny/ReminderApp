@@ -71,11 +71,12 @@ export class DataService {
     
   }
 
-  event(eventname: any, eventdate: any) {
+  event(eventname: any, eventdate: any, userid:any) {
 
     const data={
       eventname,
-      eventdate
+      eventdate,
+      userid
     }
     return this.http.post('http://localhost:4000/event',data,this.getOptions())
   }
@@ -123,12 +124,12 @@ export class DataService {
   
 
 
-getEvent(eventname:any){
+getEvent(userid:any){
   const data={}
 
   //////////asynchronous
 
-  return this.http.post('http://localhost:4000/getEvent/'+eventname,data,this.getOptions())
+  return this.http.post('http://localhost:4000/getEvent/'+userid,data,this.getOptions())
 
 }
 

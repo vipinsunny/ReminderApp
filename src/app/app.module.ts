@@ -8,7 +8,6 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EventComponent } from './event/event.component';
-import { DeleteConfirmationComponent } from './delete-confirmation/delete-confirmation.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
@@ -17,7 +16,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RegisterComponent,
     DashboardComponent,
     EventComponent,
-    DeleteConfirmationComponent
   ],
   imports: [
     BrowserModule,
